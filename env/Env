@@ -1,0 +1,46 @@
+# ==============================================================================
+# AURUM INTEL — PRODUCTION ENVIRONMENT PROFILE CONFIGURATION MATRIX
+# ==============================================================================
+
+# ── SYSTEM CORE CONFIGURATIONS ────────────────────────────────────────────────
+# Set to 'production' on your cloud deployment host, 'development' locally
+NODE_ENV=development
+PORT=3000
+
+# CORS DOMAIN LEVEL PROTECTION GATE
+# Local development mapping: http://localhost:3000
+# Production server mapping: https://yourdomain.com (Do not include a trailing slash)
+ALLOWED_ORIGIN=http://localhost:3000
+
+# REVERSE PROXY PROTECTION TRAFFIC HANDLING
+# Must be set to 'true' if deployed on Render, Railway, or behind Cloudflare
+TRUST_PROXY=false
+
+# CRON SYNC EXECUTION TIMEZONE FLAG
+# Explicitly anchors background cron jobs to Wall Street market operational hours
+TZ=America/New_York
+
+# ── PRIVATE CONNECTIVITY API KEYS (KEEP ENTIRELY CONFIDENTIAL) ────────────────
+# Anthropic Claude Cognitive Core (https://console.anthropic.com/)
+ANTHROPIC_API_KEY=sk-ant-api03-YOUR_ACTUAL_KEY_HERE
+
+# Alpha Vantage Market Ingestion Node (https://www.alphavantage.co/)
+ALPHA_VANTAGE_API_KEY=YOUR_KEY_HERE
+
+# FRED Economic Data Series Repository (https://fred.stlouisfed.org/)
+FRED_API_KEY=YOUR_KEY_HERE
+
+# NewsAPI Headline Gathering Cluster (https://newsapi.org/)
+NEWS_API_KEY=YOUR_KEY_HERE
+
+# ── COMMERCE LINKAGE STRINGS (STRIPE CODES) ───────────────────────────────────
+# Direct product redirection gateways. Leave blank to process generic waitlist flows
+STRIPE_LINK_OPERATOR=https://buy.stripe.com/YOUR_LINK
+STRIPE_LINK_INSTITUTIONAL=https://buy.stripe.com/YOUR_LINK
+
+# ── TIMING LOGIC INTERVAL CONTROLS ────────────────────────────────────────────
+# Default schedule macro: "0 */4 * * *" executes exactly every 4 hours at the top of the hour
+BRIEFING_CRON=0 */4 * * *
+
+# Time threshold (in minutes) before a cached intelligence briefing is flagged stale
+BRIEFING_MAX_AGE_MINUTES=240

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurum Intel — AI Macro Intelligence</title>
+  <style>
+    :root {
+      --bg-dark: #0a0a0c;
+      --panel-bg: #121215;
+      --border-color: #222226;
+      --text-main: #e4e4e7;
+      --text-muted: #a1a1aa;
+      --gold: #d4af37;
+      --crypto: #f7931a;
+      --bullish: #10b981;
+      --bearish: #ef4444;
+      --neutral: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 30px;
+    }
+
+    .logo-area h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-area span {
+      color: var(--gold);
+    }
+
+    .logo-area p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .card-value {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .briefing-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .briefing-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .bias-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .bias-BULLISH { background-color: rgba(16, 185, 129, 0.15); color: var(--bullish); }
+    .bias-BEARISH { background-color: rgba(239, 68, 68, 0.15); color: var(--bearish); }
+    .bias-NEUTRAL { background-color: rgba(107, 114, 128, 0.15); color: var(--neutral); }
+
+    .section-block {
+      margin-bottom: 24px;
+    }
+
+    .section-block h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      border-left: 3px solid var(--gold);
+      padding-left: 8px;
+    }
+
+    .trade-setup-box {
+      background-color: rgba(212, 175, 55, 0.03);
+      border: 1px dashed rgba(212, 175, 55, 0.3);
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .trade-setup-box h4 {
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .loading {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo-area">
+        <h1>Aurum<span>Intel</span></h1>
+        <p>Autonomous Macro Risk Aggregator</p>
+      </div>
+      <div id="cache-time" style="font-size: 12px; color: var(--text-muted);">Syncing matrix...</div>
+    </header>
+
+    <!-- Real-Time Market Metric Ingestion Display Grid -->
+    <div class="market-grid" id="market-data-grid">
+      <div class="card"><div class="card-title">Gold Spot</div><div class="card-value loading">Loading...</div></div>
+      <div class="card"><div class="card-title">Bitcoin Spot</div><div class="card-value loading">Loading...</div></div>
+      <div class="card"><div class="card-title">Ethereum Spot</div><div class="card-value loading">Loading...</div></div>
+      <div class="card"><div class="card-title">US 10Y Yield</div><div class="card-value loading">Loading...</div></div>
+    </div>
+
+    <!-- AI Intelligence Narrative Panel layout -->
+    <div class="briefing-layout">
+      <div class="card" id="briefing-card">
+        <h2 style="margin-bottom: 16px;">Macro Intelligence Feed</h2>
+        <div class="loading">In-memory synthesis vector initializing...</div>
+      </div>
+
+      <div class="card" style="height: fit-content;">
+        <h3 style="margin-bottom: 12px; font-size: 16px;">Tactical Trade Framework</h3>
+        <div id="trade-idea-card" class="loading">Awaiting structural setup parsing...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRODUCTION LEGAL DISCLAIMER & RISK DISCLOSURE FOOTER ──────────────── -->
+  <footer style="background-color: #0d0d10; color: #52525b; font-size: 11px; text-align: center; padding: 32px 16px; line-height: 1.6; border-top: 1px solid var(--border-color); margin-top: 60px;">
+    <p style="max-width: 900px; margin: 0 auto; text-align: justify; text-justify: inter-word;">
+      <strong>RISK DISCLOSURE & LEGAL NOTICE:</strong> Aurum Intel is an automated macro intelligence platform designed strictly for informational, educational, and research purposes. None of the content, market tickers, financial data points, AI-generated analyses, bias vectors, or strategic trade frameworks provided on this platform constitute investment, financial, trading, or legal advice. Trading spot metals (XAUUSD), foreign exchange, cryptocurrencies (Bitcoin/Ethereum), and sovereign financial instruments carries an extremely high level of volatility and risk, and may result in the complete loss of deployed capital. You are entirely responsible for your own financial execution paths and portfolio configurations. Aurum Intel, its engineers, and affiliates accept zero liability for any financial loss, disruption, or operational damage resulting directly or indirectly from reliance on or interaction with data delivered by this software model.
+    </p>
+    <p style="margin-top: 16px; color: #3f3f46; letter-spacing: 0.5px;">&copy; 2026 AURUM INTEL • POWERED BY AUTONOMOUS MACRO ENGINE AGENTS • ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <!-- ── APPLICATION FRONTEND API INTEGRATION MATRIX ───────────────────────── -->
+  <script>
+    const API_BASE = '/api';
+
+    async function fetchMarketData() {
+      try {
+        const res = await fetch(`${API_BASE}/market-data`);
+        const data = await res.json();
+        if (!data || !data.assets) return;
+
+        const grid = document.getElementById('market-data-grid');
+        const assets = data.assets;
+
+        grid.innerHTML = `
+          <div class="card">
+            <div class="card-title">${assets.gold.ticker}</div>
+            <div class="card-value" style="color: var(--gold);">$${assets.gold.price?.toFixed(2) || 'N/A'}</div>
+            <div style="font-size: 12px; color: ${assets.gold.changePercent >= 0 ? 'var(--bullish)' : 'var(--bearish)'}">
+              ${assets.gold.changePercent >= 0 ? '+' : ''}${assets.gold.changePercent?.toFixed(2) || '0.00'}%
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">${assets.bitcoin.ticker}</div>
+            <div class="card-value" style="color: var(--crypto);">$${assets.bitcoin.price?.toLocaleString() || 'N/A'}</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Spot Price Reference</div>
+          </div>
+          <div class="card">
+            <div class="card-title">${assets.ethereum.ticker}</div>
+            <div class="card-value">$${assets.ethereum.price?.toLocaleString() || 'N/A'}</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Spot Price Reference</div>
+          </div>
+          <div class="card">
+            <div class="card-title">${assets.treasury10Y.ticker}</div>
+            <div class="card-value" style="color: #60a5fa;">${assets.treasury10Y.yield?.toFixed(2) || 'N/A'}%</div>
+            <div style="font-size: 12px; color: var(--text-muted);">US 10-Year Bond Rate</div>
+          </div>
+        `;
+      } catch (err) {
+        console.error('Error fetching real-time market data:', err);
+      }
+    }
+
+    async function fetchMacroBriefing() {
+      try {
+        const res = await fetch(`${API_BASE}/macro-briefing`);
+        const data = await res.json();
+        
+        if (!data || !data.briefing) return;
+        const brief = data.briefing;
+
+        // Display update time stamps
+        document.getElementById('cache-time').innerText = `Matrix updated: ${data.cacheAgeMinutes}m ago`;
+
+        // Populate intelligence brief
+        const briefingCard = document.getElementById('briefing-card');
+        briefingCard.innerHTML = `
+          <h2 style="margin-bottom: 12px;">Macro Intelligence Feed</h2>
+          <span class="bias-badge bias-${brief.marketBias}">${brief.marketBias} Sentiment Bias</span>
+          
+          <div class="section-block">
+            <h3>Executive Summary</h3>
+            <p style="color: var(--text-main); font-size: 14px; margin-top: 6px;">${brief.executiveSummary}</p>
+          </div>
+          
+          <div class="section-block">
+            <h3>Bullion & Yield Correlation Analysis</h3>
+            <p style="color: var(--text-muted); font-size: 14px; margin-top: 6px;">${brief.goldAnalysis}</p>
+          </div>
+          
+          <div class="section-block">
+            <h3>Crypto Assets & Liquidity Metrics</h3>
+            <p style="color: var(--text-muted); font-size: 14px; margin-top: 6px;">${brief.cryptoAnalysis}</p>
+          </div>
+        `;
+
+        // Populate trade framing box
+        const tradeCard = document.getElementById('trade-idea-card');
+        tradeCard.innerHTML = `
+          <div class="trade-setup-box">
+            <h4>Setup Thesis</h4>
+            <p style="font-size: 13px; color: var(--text-main); margin-bottom: 12px;">${brief.actionableTradeIdea.setup}</p>
+            <h4 style="color: var(--bearish);">Invalidation Point</h4>
+            <p style="font-size: 13px; color: var(--text-muted);">${brief.actionableTradeIdea.invalidation}</p>
+          </div>
+        `;
+      } catch (err) {
+        console.error('Error parsing synthetic briefing assets:', err);
+      }
+    }
+
+    // Initialize display loops
+    fetchMarketData();
+    fetchMacroBriefing();
+
+    // Set interactive poll streams
+    setInterval(fetchMarketData, 60000); // UI polls local server memory map every 60 seconds
+    setInterval(fetchMacroBriefing, 300000); // UI refetches briefings every 5 minutes
+  </script>
+</body>
+</html>
